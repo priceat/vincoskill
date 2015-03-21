@@ -13,3 +13,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise', '>= 3.2.4'
 gem 'simple_form'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'carrierwave-aws'
+gem "fog", "~> 1.3.1"
+gem 'figaro'
