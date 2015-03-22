@@ -1,13 +1,16 @@
 <div class="hero">
   <br />
-
   <div class="frosty col-xs-10 col-xs-offset-1 text-center">
     <br />
     <h1>VincoSkill</h1>
     <br />
     <h2>Skill training for the next generation.</h2>
     <br />
+    <% if user_signed_in? %>
+    <%= link_to 'My Profile', dashboard_path(@dashboard), :class => 'btn btn-success' %>
+    <% else %>
     <%= link_to 'Get Started', '#', :class => 'btn btn-success' %>
+    <% end %>
     <br /><br />
   </div>
 </div>

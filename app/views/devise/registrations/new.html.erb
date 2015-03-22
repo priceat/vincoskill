@@ -8,6 +8,8 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
     <%= f.input :password_confirmation, required: true %>
+    <%= f.label :role, 'Coach or Player?' %>
+    <%= f.select :role, Dictionaries.user_role, { include_blank: true }, { class: 'form-control select override'} %>
   </div>
   <br />
   <div class="form-actions">

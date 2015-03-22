@@ -3,3 +3,7 @@ workout_type:
 - Lefty Specialty
 - Groundball Focus
 - Quick Hitter
+
+user_role:
+- Coach
+- Player
