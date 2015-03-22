@@ -9,7 +9,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :role, inclusion: { in: ['player', 'coach', 'admin'] }
+
+  ROLES = {
+  	"Player" => "player",
+  	"Coach" => "coach"
+  }
+  validates :role, inclusion: { in: ROLES.values + ['admin'] }
 
 def player?
   self.role == 'player'
