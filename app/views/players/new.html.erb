@@ -1,0 +1,5 @@
+<%= form_tag(players_path, method: "post") do %>
+  <%= label_tag(:email, "User's Email") %>
+  <%= text_field_tag(:email) %>
+  <%= submit_tag("Search") %>
+<% end %>

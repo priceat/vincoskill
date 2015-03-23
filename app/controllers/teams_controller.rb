@@ -10,9 +10,10 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(team_params)
+    @team = current_user.teams.create(team_params)
+
      if @team.valid?
-      redirect_to team_path
+      redirect_to dashboard_coach_path
     else
       render :new, :status => :unprocessable_entity
     end

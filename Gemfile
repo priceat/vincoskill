@@ -10,7 +10,6 @@ gem 'jquery-rails'
 #gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 gem 'devise', '>= 3.2.4'
 gem 'simple_form'
 gem 'carrierwave'
@@ -19,3 +18,9 @@ gem 'carrierwave-aws'
 gem "fog", "~> 1.3.1"
 gem 'figaro'
 gem 'coffee-rails', '~> 4.0.0'
+group :development do
+   gem 'spring'   
+   gem 'binding_of_caller'
+   gem 'better_errors'
+ end
+

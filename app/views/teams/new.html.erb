@@ -1,0 +1,12 @@
+<br />
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+  <h1> Add a Team </h1>
+   <%= simple_form_for @team do |f| %>
+    <%= f.input :name %>
+    <br />
+    <%= f.submit "Create", :class => 'btn btn-primary' %>
+    <br />
+  <% end %>
+  <br />
+
+</div>

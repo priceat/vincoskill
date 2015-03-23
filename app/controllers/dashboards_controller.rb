@@ -3,7 +3,8 @@ before_action :authenticate_user!
   def show
   end
 
-  # def 
+  def coach
+  end
 
 
   private
