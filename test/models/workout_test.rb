@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class WorkoutTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+ 
+ test "new_workout" do
+  workout = Workout.create()
+
+ end
 end

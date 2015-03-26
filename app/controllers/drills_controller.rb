@@ -10,7 +10,7 @@ class DrillsController < ApplicationController
   def create
      @drill = Drill.create(drill_params)
     if @drill.valid?
-      redirect_to drills_path
+      redirect_to dashboard_admin_path
     else
       render :new, :status => :unprocessable_entity
     end

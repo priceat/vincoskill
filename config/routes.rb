@@ -4,15 +4,14 @@ Vinco::Application.routes.draw do
   get "welcome/about" => 'welcome#about'
   get "dashboard/player" => 'dashboards#player'
   get "dashboard/coach" => 'dashboards#coach'
-  # get "team/new" => 'teams#new'
+  get "dashboard/admin" => 'dashboards#admin'
   resources :players
-  resources :workouts
+  resources :workouts do
+    resources :exercises, :only => [:show, :update, :new, :create] do
+      resources :drills, :only => [:show]
+    end
+  end
   resources :drills
-  # resources :dashboards, :only => [] do 
-  #      collection do
-  #      get 'player' 
-  #      end
-  # end
   resources :teams, :only => [:new, :create, :show, :edit, :update]
    root to: 'welcome#index'
 end

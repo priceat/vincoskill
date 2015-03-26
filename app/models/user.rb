@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :workouts
+  has_many :exercises, through: :workouts
   belongs_to :team
   has_many :teams
   # Include default devise modules. Others available are:
@@ -27,6 +28,6 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    self.admin =='admin'
+    self.role =='admin'
   end
 end

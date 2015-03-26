@@ -1,14 +1,17 @@
 class WorkoutsController < ApplicationController
   before_action :authenticate_user!
+
   def index
   end
+
   def new
     @workout = Workout.new
   end
+
   def create
-    @workout = Workout.create(workout_params)
-    if @workout.valid?
-      redirect_to workout_path(@workout)
+    @new_workout = current_user.workouts.new
+    if @new_workout.save
+      redirect_to @new_workout
     else
       render :new, :status => :unprocessable_entity
     end
@@ -16,6 +19,8 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = Workout.find(params[:id])
+    @exercises = @workout.exercises
+    # @drills = @exercises.drills
   end
   
   private
@@ -23,4 +28,6 @@ class WorkoutsController < ApplicationController
   def workout_params
     params.require(:workout).permit(:title, :type)
   end
+
+ 
 end

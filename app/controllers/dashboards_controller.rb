@@ -3,14 +3,13 @@ before_action :authenticate_user!
   def show
   end
 
-  def coach
+  def admin
+    @drills = Drill.all
   end
 
+  def player
+    @workout = current_user.workouts.all
+  end
 
   private
-
-  def coach_info
-    @user.coach?
-  end
-
 end
