@@ -6,23 +6,36 @@
   <% else %>
   <h2> You are not associated with a team! </h2>
   <% end %>
-  <% if @workout.present? %>
+  <% if current_user.worked_out? %>
   <table class="table table-striped">
   <thead>
     <tr>
       <th>Workout Name</th>
       <th>Completed?</th>
       <th>Date Started</th>
-      <th>Date Finihed</th>
+      <th>Date Finished</th>
       <th>Time to Complete</th>
       <th>Rating</th>
       <th colspan="<%= @colspan %>"></th>
     </tr>
   </thead>
+    <tbody>
+  <% @workouts.each do |workout| %>
+    <tr>
+      <td><%= link_to 'Random', workout %></td>
+      <% if workout.workout_drills.present? %>
+      <td>No</td>
+      <% else %>
+      <td>Yes</td>
+      <% end %>
+      <td><%= time_ago_in_words(workout.created_at) %></td>
+      <td colspan="<%= @colspan %>"></td>
+    </tr>
+    <% end %>
   </table>
   <% else %>
   <h3> You have not worked out! Get to it! </h3>
   <% end %>
-  <%= link_to 'Get a New Workout!', workout_exercises_path, :method => :post, :class => 'btn btn-success btn-block' %>
+  <%= link_to 'Get a New Workout!', workouts_path, :method => :post, :class => 'btn btn-success btn-block' %>
   <%= link_to 'My Profile', edit_user_registration_path %>
 </div>

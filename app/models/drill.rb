@@ -1,5 +1,4 @@
 class Drill < ActiveRecord::Base
-  belongs_to :exercise
-  belongs_to :workout
+  has_many :workout_drills
   mount_uploader :video, VideoUploader
 end

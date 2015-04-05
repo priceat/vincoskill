@@ -12,18 +12,18 @@
     </tr>
   </thead>
   <tbody>
-  <% @drills.each do |drill| %>
+  <% @workout_drills.each do |w| %>
     <tr>
-      <td><%= link_to drill.name, drill %></td>
-      <td><%= drill.description %></td>
-      <td><%= drill.pointers %></td>
-      <% if drill.video.present? %>
-      <td><%= link_to "Video", drill, class: 'btn-xs btn-success' %></td>
+      <td><%= link_to w.drill.name, drill_path(w) %></td>
+      <td><%= w.drill.description %></td>
+      <td><%= w.drill.pointers %></td>
+      <% if w.drill.video.present? %>
+      <td><%= link_to "Video", w.drill, class: 'btn-xs btn-success' %></td>
       <% else %>
       <td>Not Yet</td>
       <% end %>
     </tr>
     <% end %>
   </table>
-  <%= link_to 'Begin Workout', workout_exercise_drill_path, class: 'btn btn-success' %>
+  <%= link_to 'Begin Workout', workout_drill_path, class: 'btn btn-success' %>
 </div>

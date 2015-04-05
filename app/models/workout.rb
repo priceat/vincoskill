@@ -1,11 +1,13 @@
 class Workout < ActiveRecord::Base
   belongs_to :user
-  has_many :exercises
-  has_many :drills, through: :exercises
-  # before_create :make_exercises
+  has_many :workout_drills
+  has_many :drills, through: :workout_drills
+  after_create :populate_the_drills!
 
-  # def make_exercises
-  #   self.exercises = Exercise.new
-  # end
+  def populate_the_drills!
+    drills = Drill.order("RANDOM()").limit(5)
+    drills.each {|d| self.workout_drills.create(:drill_id => d.id, :workout_id => self.id)}
+  end
 
+ 
 end

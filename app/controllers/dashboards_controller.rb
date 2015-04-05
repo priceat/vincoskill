@@ -8,7 +8,7 @@ before_action :authenticate_user!
   end
 
   def player
-    @workout = current_user.workouts.all
+    @workouts = current_user.workouts.all
   end
 
   private

@@ -15,7 +15,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'carrierwave-aws'
-gem "fog", "~> 1.3.1"
+gem "fog", "~> 1.0"
 gem 'figaro'
 gem 'coffee-rails', '~> 4.0.0'
 group :development do
@@ -24,4 +24,6 @@ group :development do
    gem 'better_errors'
    gem 'faker'
  end
-
+group :test do 
+  gem "factory_girl_rails", "~> 4.0"
+end
