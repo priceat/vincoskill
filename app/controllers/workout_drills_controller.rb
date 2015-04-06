@@ -1,5 +1,4 @@
 class WorkoutDrillsController < ApplicationController
-  before_action :set_workout_drill, only: [:show]
 
   def index
     @workout_drills = current_user.workout_drills.all
@@ -8,9 +7,14 @@ class WorkoutDrillsController < ApplicationController
   def create
   end
 
-  def show 
-    @workout = current_user.workouts.last
-    @workout_drill = @workout.workout_drills.where(:complete => false).first
+  def show
+     @workout = current_user.workouts.last
+     @workout_drill = @workout.workout_drills.where(:complete => false).first
+    if @workout.workout_drills.any?{|w| w.complete == false}
+    else
+      flash[:notice] = "All done! Congratulations!"
+      redirect_to dashboard_player_path(current_user)
+    end
   end
 
   def update
@@ -23,10 +27,6 @@ class WorkoutDrillsController < ApplicationController
 
   def workout_drill_params
     params.require(:workout_drill).permit(:workout_id, :drill_id, :complete)
-  end
-
-  def set_workout_drill
-    @workout_drill = WorkoutDrill.find(params[:id])
   end
 
 end

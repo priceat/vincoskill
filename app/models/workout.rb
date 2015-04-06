@@ -9,5 +9,4 @@ class Workout < ActiveRecord::Base
     drills.each {|d| self.workout_drills.create(:drill_id => d.id, :workout_id => self.id)}
   end
 
- 
 end

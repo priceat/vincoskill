@@ -25,5 +25,9 @@
     </tr>
     <% end %>
   </table>
+  <% if @workout.workout_drills.any?{|w| w.complete == true} %>
+  <%= link_to 'Back', :back, class: 'btn btn-success' %> 
+  <% else %>
   <%= link_to 'Begin Workout', workout_drill_path, class: 'btn btn-success' %>
+  <% end %>
 </div>

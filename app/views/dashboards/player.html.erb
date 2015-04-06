@@ -23,12 +23,14 @@
   <% @workouts.each do |workout| %>
     <tr>
       <td><%= link_to 'Random', workout %></td>
-      <% if workout.workout_drills.present? %>
+      <% if workout.workout_drills.any?{|w| w.complete == false} %>
       <td>No</td>
       <% else %>
       <td>Yes</td>
       <% end %>
       <td><%= time_ago_in_words(workout.created_at) %></td>
+      <td><%= time_ago_in_words(workout.updated_at) %></td>
+      <td><%= distance_of_time_in_words(workout.created_at, workout.updated_at) %></td>
       <td colspan="<%= @colspan %>"></td>
     </tr>
     <% end %>
@@ -37,5 +39,5 @@
   <h3> You have not worked out! Get to it! </h3>
   <% end %>
   <%= link_to 'Get a New Workout!', workouts_path, :method => :post, :class => 'btn btn-success btn-block' %>
-  <%= link_to 'My Profile', edit_user_registration_path %>
+  
 </div>

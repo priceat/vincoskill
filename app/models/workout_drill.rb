@@ -6,8 +6,4 @@ class WorkoutDrill < ActiveRecord::Base
     complete == true
   end
 
-  def next_drill?
-    workout.workout_drills.where("id > ?", id).first
-  end
-
 end

@@ -23,6 +23,10 @@ class WorkoutsController < ApplicationController
     @workout_drills = @workout.workout_drills
   end
   
+  def completed
+ 
+  end
+
   private
 
   helper_method :current_workout
