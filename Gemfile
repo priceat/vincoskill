@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise', '>= 3.2.4'
 gem 'simple_form'
+gem 'simple-form-datepicker'
+gem 'jquery-ui-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'carrierwave-aws'
