@@ -6,4 +6,7 @@ class WorkoutDrill < ActiveRecord::Base
     complete == true
   end
 
+  def next_drill
+    
+  end
 end

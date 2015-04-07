@@ -9,8 +9,9 @@
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
     <%= f.input :password_confirmation, required: true %>
     <%= f.input :role, :collection => User::ROLES, :label => 'Coach or Player?' %>
-    <%= f.input :date_of_birth, as: :datepicker, label: "Date of Birth"  %>
+    <%= f.input :date_of_birth, required: true, as: :datepicker, label: "Date of Birth"  %>
     <%= f.input :date_of_birth, :as => :hidden, :input_html => { :id => 'date_of_birth-alt'} %>
+    <%= f.input :years_played, required: true %>
   </div>
   <br />
   <div class="form-actions">

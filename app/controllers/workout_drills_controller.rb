@@ -13,7 +13,7 @@ class WorkoutDrillsController < ApplicationController
     if @workout.workout_drills.any?{|w| w.complete == false}
     else
       flash[:notice] = "All done! Congratulations!"
-      redirect_to dashboard_player_path(current_user)
+      redirect_to dashboard_player_path
     end
   end
 

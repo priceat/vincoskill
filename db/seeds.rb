@@ -10,5 +10,6 @@ Drill.destroy_all
     )
 end
 
+
 puts "Seed finished"
 puts "#{Drill.count} drills created"

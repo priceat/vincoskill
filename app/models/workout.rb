@@ -5,16 +5,16 @@ class Workout < ActiveRecord::Base
   after_create :populate_the_drills!
 
   def populate_the_drills!
-    if self.user.age <= 12
-      drills = Drill.order("RANDOM()").limit(5)
-      drills.each {|d| self.workout_drills.create(:drill_id => d.id, :workout_id => self.id)}
-    elsif self.user.age <= 16
-      drills = Drill.order("RANDOM()").limit(7)
-      drills.each {|d| self.workout_drills.create(:drill_id => d.id, :workout_id => self.id)}
+    drill_limit = 0
+    if self.user.age.between?(1, 12)
+      drill_limit = 5
+    elsif self.user.age.between?(13, 16)
+      drill_limit = 7
     else
-      drills = Drill.order("RANDOM()").limit(10)
-      drills.each {|d| self.workout_drills.create(:drill_id => d.id, :workout_id => self.id)}
+      drill_limit = 10
     end
+     drills = Drill.order("RANDOM()").limit(drill_limit)
+     drills.each {|d| self.workout_drills.create(:drill_id => d.id, :workout_id => self.id)}
   end
 
 end

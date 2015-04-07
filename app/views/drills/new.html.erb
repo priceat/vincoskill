@@ -6,6 +6,7 @@
   <%= f.input :description %>
   <%= f.input :pointers %>
   <%= f.input :video %>
+  <%= f.input :skill_level, :collection => Drill::LEVELS, :label => 'Skill Level' %>
   <br />
   <%= f.submit "Create", :class => 'btn btn-primary' %>
   <br />

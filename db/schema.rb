@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406181832) do
+ActiveRecord::Schema.define(version: 20150407171829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150406181832) do
     t.string   "video"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "skill_level"
   end
 
   create_table "teams", force: true do |t|
@@ -50,7 +51,8 @@ ActiveRecord::Schema.define(version: 20150406181832) do
     t.string   "role",                   default: "player"
     t.integer  "team_id"
     t.date     "date_of_birth"
-    t.integer  "age"
+    t.integer  "years_played"
+    t.string   "skill_level"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
