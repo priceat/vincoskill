@@ -20,6 +20,7 @@ gem 'carrierwave-aws'
 gem "fog", "~> 1.0"
 gem 'figaro'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'ranked-model'
 group :development do
    gem 'spring'   
    gem 'binding_of_caller'

@@ -20,7 +20,7 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = current_user.workouts.find(params[:id])
-    @workout_drills = @workout.workout_drills
+    @workout_drill = current_workout.workout_drills.first
   end
   
   def completed

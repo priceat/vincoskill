@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-  <% @workout_drills.each do |w| %>
+  <% @workout.workout_drills.each do |w| %>
     <tr>
       <td><%= link_to w.drill.name, drill_path(w) %></td>
       <td><%= w.drill.description %></td>
@@ -25,9 +25,9 @@
     </tr>
     <% end %>
   </table>
-  <% if @workout.workout_drills.any?{|w| w.complete == true} %>
+  <% if @workout.workout_drills.any?{|w| w.complete == true} &&  %>
   <%= link_to 'Back', :back, class: 'btn btn-success' %> 
   <% else %>
-  <%= link_to 'Begin Workout', workout_drill_path, class: 'btn btn-success' %>
+  <%= link_to 'Begin Workout', workout_drill_path(@workout_drill), class: 'btn btn-success' %>
   <% end %>
 </div>
