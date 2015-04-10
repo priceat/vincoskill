@@ -13,5 +13,14 @@
    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
   </video>
   <br />
-  <%= link_to 'Complete', workout_drill_path(@workout_drill, workout_drill:{complete: true}), :method => :put, :class => 'btn btn-success btn-block' %>
+  <%= simple_form_for(@workout_drill, url: workout_drill_path, html: { method: :put }) do |f| %> 
+  <div class="form-inputs">
+    <%= f.input :rating, :collection => WorkoutDrill::RATINGS, :label => 'Please Rate the Drill Difficulty' %>
+    <%= f.hidden_field :complete, :value => true %>
+     </div>
+  <br />
+  <div class="form-actions">
+    <%= f.button :submit, "Complete", class: 'btn btn-success btn-block' %>
+    <% end %>
+  </div>
 </div>

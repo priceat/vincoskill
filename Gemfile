@@ -21,6 +21,7 @@ gem "fog", "~> 1.0"
 gem 'figaro'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'ranked-model'
+gem 'will_paginate'
 group :development do
    gem 'spring'   
    gem 'binding_of_caller'

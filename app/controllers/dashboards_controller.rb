@@ -8,7 +8,7 @@ before_action :authenticate_user!
   end
 
   def player
-    @workouts = current_user.workouts.all
+    @workouts = current_user.workouts.paginate(page: params[:page], per_page: 10)
   end
 
   private

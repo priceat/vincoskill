@@ -9,6 +9,10 @@ class WorkoutTest < ActiveSupport::TestCase
   assert_equal 0, w.workout_drills.count
   w.save
   assert_equal 5, w.workout_drills.count
+  assert_equal 1, w.workout_average
+  w.workout_drills.first.update_attributes(:rating => 5)
+  w.workout_drills.last.update_attributes(:rating => 5)
+  assert_equal 3, w.workout_average
   # w = FactoryGirl.create(:workout)
   # assert_equal 5, w.workout_drills.count
  end

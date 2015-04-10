@@ -12,10 +12,10 @@
     <tr>
       <th>Workout Name</th>
       <th>Completed?</th>
-      <th>Date Started</th>
-      <th>Date Finished</th>
+      <th>Started</th>
+      <th>Finished</th>
       <th>Time to Complete</th>
-      <th>Rating</th>
+      <th>Workout Difficulty</th>
       <th colspan="<%= @colspan %>"></th>
     </tr>
   </thead>
@@ -31,6 +31,7 @@
       <td><%= time_ago_in_words(workout.created_at) %></td>
       <td><%= time_ago_in_words(workout.workout_drills.last.updated_at) %></td>
       <td><%= distance_of_time_in_words(workout.created_at, workout.workout_drills.last.updated_at) %></td>
+      <td><%= workout.workout_average %> / 5 </td>
       <td colspan="<%= @colspan %>"></td>
     </tr>
     <% end %>
@@ -38,6 +39,7 @@
   <% else %>
   <h3> You have not worked out! Get to it! </h3>
   <% end %>
+  <%= will_paginate @workouts %>
   <%= link_to 'Get a New Workout!', workouts_path, :method => :post, :class => 'btn btn-success btn-block' %>
   
 </div>
