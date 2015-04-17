@@ -14,11 +14,11 @@
   <tbody>
   <% @workout.workout_drills.each do |w| %>
     <tr>
-      <td><%= link_to w.drill.name, drill_path(w) %></td>
+      <td><%= link_to w.drill.name, drill_path(w.drill_id) %></td>
       <td><%= w.drill.description %></td>
       <td><%= w.drill.pointers %></td>
       <% if w.drill.video.present? %>
-      <td><%= link_to "Video", w.drill, class: 'btn-xs btn-success' %></td>
+      <td><%= link_to "Video", drill_path(w.drill_id), class: 'btn-xs btn-success' %></td>
       <% else %>
       <td>Not Yet</td>
       <% end %>

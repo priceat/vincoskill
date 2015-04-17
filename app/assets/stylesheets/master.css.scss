@@ -1,13 +1,15 @@
+$navbarfont: 'chunkfiveroman';
+
 .navbar {
   border-radius:0;
-  font-family: 'chunkfiveroman';
+  font-family: $navbarfont;
   font-weight: 200;
   box-shadow: 0px 1px 3px #2a2a2a;
   background:url('carbon_fibre_v2.png');
 }
 
 .navbar-inverse a.navbar-brand {
-  font-family: 'chunkfiveroman';
+  font-family: $navbarfont;
   font-weight: 75;
   color:#FF6600;
 }
@@ -35,14 +37,14 @@ h1, h2, h3, h4, h5, h6, .navbar {
 }
 
 .frosty h1 {
-  font-family:  'chunkfiveroman';
+  font-family: $navbarfont;
   color:#FF6600;
   font-weight: 100;
   text-shadow: rgba(0,0,0,0.95) 1px 1px;
 }
 
 .frosty h2 {
-  font-family:  'chunkfiveroman';
+  font-family: $navbarfont;
   color:white;
   font-weight: 200;
   text-shadow: rgba(0,0,0,0.95) 1px 1px;
