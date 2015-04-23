@@ -5,9 +5,8 @@ class WorkoutTest < ActiveSupport::TestCase
   50.times do 
     FactoryGirl.create(:drill)
   end
-  w = FactoryGirl.build(:workout)
-  assert_equal 0, w.workout_drills.count
-  w.save
+  u = FactoryGirl.create(:user)
+  w = FactoryGirl.create(:workout)
   assert_equal 5, w.workout_drills.count
   assert_equal 1, w.workout_average
   w.workout_drills.first.update_attributes(:rating => 5)

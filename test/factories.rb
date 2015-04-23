@@ -23,4 +23,7 @@ FactoryGirl.define do
     title "Random"
     user
   end
+  factory :workout_drill do
+    workout
+  end
 end

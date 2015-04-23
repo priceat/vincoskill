@@ -9,11 +9,19 @@
   </p>
     <br class="clr" />
     <br />
+    <video id="MY_VIDEO_1" class="video-js vjs-default-skin vjs-big-play-centered" controls
+    preload="auto" width="auto" height="auto" poster="/assets/black.jpg"
+   data-setup="{}">
+    <source src="<%= @workout_drill.drill.video.to_s %>" type='video/mp4'>
+   <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+  <br />
     <div class="your-clock"></div>
     <script>
     $(function(){
       var ticking = false;
       var clock = new FlipClock($('.your-clock'), {
+        clockFace: 'MinuteCounter',
         countdown: true,
         stop: function() {
           if (ticking === true){
@@ -32,15 +40,8 @@
     <button class="btn btn-success" id="start_clock">
       Start Drill
     </button>
-
     <br />
-  <video id="MY_VIDEO_1" class="video-js vjs-default-skin vjs-big-play-centered" controls
-    preload="auto" width="auto" height="auto" poster="/assets/black.jpg"
-   data-setup="{}">
-    <source src="<%= @workout_drill.drill.video.to_s %>" type='video/mp4'>
-   <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-  </video>
-  <br />
+    <br />
 
     <!-- Button trigger modal -->
   <button class="btn btn-success btn-block" data-toggle="modal" data-target="#myModal" id="start_button">
