@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
@@ -27,10 +27,10 @@ class UserController < ApplicationController
   def update
     @user = User.find(params[:id])
     
-    if @user.update_attributes(secure_params)
-      redirect_to users_path, :notice => "User updated."
+    if @user.update_attributes(secure_params) && @user.role == "player"
+      redirect_to dashboard_player_path, :notice => "Let's Go!"
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to dashboard_player_path, :alert => "Not a Valid Age!"
     end
   end
 

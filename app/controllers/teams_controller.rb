@@ -20,6 +20,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @team = Team.find(params[:id])
   end
 
@@ -51,7 +52,7 @@ class TeamsController < ApplicationController
    private
 
    def team_params
-    params.require(:team).permit(:name)
+    params.require(:team).permit(:name, :age_group)
    end
 
 end

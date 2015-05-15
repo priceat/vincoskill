@@ -1,5 +1,12 @@
-Rails.application.configure do
+Vinco::Application.configure do
+  
   config.action_mailer.default_url_options = { :host => 'vincoskill.herokuapp.com/' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :address => "127.0.0.1",
+  :port    => 25,
+  :domain  => 'vincoskill.herokuapp.com/'
+}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

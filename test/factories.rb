@@ -7,6 +7,7 @@ FactoryGirl.define do
     password_confirmation "password"
     date_of_birth '2013-04-06'
     years_played 3
+    role "player"
   end
   factory :drill do 
     name do 
@@ -18,6 +19,7 @@ FactoryGirl.define do
     pointers do 
       Faker::Lorem.sentence
     end
+      skill_level "Beginner"
   end
   factory :workout do
     title "Random"

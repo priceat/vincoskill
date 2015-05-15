@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
 
   def new
+    @player = User.new
   end
 
   def create
@@ -10,4 +11,24 @@ class PlayersController < ApplicationController
     user.update_attributes(:team_id => team.id)
       redirect_to dashboard_coach_path
   end
+
+  def edit
+    @player = current_user.id
+  end
+
+  def update
+    @player = current_user
+    if @player.update(player_params)
+      @player.validate_age
+      @player.set_skill_level
+      redirect_to dashboard_player_path
+    end
+  end
+
+  private
+
+  def player_params
+    params.require(:user).permit(:date_of_birth, :years_played)
+  end
+   
 end

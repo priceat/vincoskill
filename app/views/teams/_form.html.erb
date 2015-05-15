@@ -1,0 +1,9 @@
+<br />
+   <%= simple_form_for @user.teams.last do |f| %>
+    <%= f.input :name, :label => 'Team Name' %>
+    <%= f.input :age_group, :collection => Team::AGEGROUP, :label => 'Team Age Group' %>
+    <br />
+    <%= f.submit "Update", :class => 'btn btn-primary' %>
+    <br />
+  <% end %>
+  <br />

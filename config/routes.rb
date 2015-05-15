@@ -6,6 +6,7 @@ Vinco::Application.routes.draw do
   get "dashboard/coach" => 'dashboards#coach'
   get "dashboard/admin" => 'dashboards#admin'
   resources :players
+  resources :users, :only => [:edit, :update]
   resources :workouts 
   resources :drills
   resources :workout_drills

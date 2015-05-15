@@ -6,7 +6,7 @@ class DrillTest < ActiveSupport::TestCase
     FactoryGirl.create(:drill)
     end
   u = FactoryGirl.create(:user)
-  w = FactoryGirl.create(:workout)
-  assert_equal 'Beginner', w.workout_drills.first.skill_level
+  w = FactoryGirl.create(:workout, :user => u)
+  assert_equal 'Beginner', w.workout_drills.first.drill.skill_level
   end
 end

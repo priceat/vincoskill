@@ -10,5 +10,8 @@ class ActiveSupport::TestCase
     include Devise::TestHelpers
   end
 
-  # Add more helper methods to be used by all tests here...
+  def invite_new_user
+  user = User.create!(email: "test@test.com", password: "password", password_confirmation: "password", date_of_birth: nil, years_played: nil, role: "player")
+  user
+  end
 end

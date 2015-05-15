@@ -1,5 +1,15 @@
-<%= form_tag(players_path, method: "post") do %>
-  <%= label_tag(:email, "User's Email") %>
-  <%= text_field_tag(:email) %>
-  <%= submit_tag("Search") %>
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+<h2>Sign up Your Player!</h2>
+  <br />
+<%= simple_form_for(User.new, :url => user_invitation_path, html: { class: 'form-inline' }) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email, placeholder: 'Email', label: false %>
+    <%= f.hidden_field :role, :value => 'player' %>
+    <%= f.hidden_field :team_id, :value => current_user.teams.last.id %>
+  </div>
+  <br />
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
 <% end %>
+</div>

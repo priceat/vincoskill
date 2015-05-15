@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise', '>= 3.2.4'
+gem 'devise_invitable', '~> 1.3.4'
 gem 'simple_form'
 gem 'simple-form-datepicker'
 gem 'jquery-ui-rails'
@@ -22,12 +23,12 @@ gem 'figaro'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'ranked-model'
 gem 'will_paginate'
-group :development do
+group :development, :test do
    gem 'spring'   
    gem 'binding_of_caller'
    gem 'better_errors'
    gem 'faker'
+   gem 'letter_opener'
+   gem 'email_spec'
+   gem "factory_girl_rails", "~> 4.0"
  end
-group :test do 
-  gem "factory_girl_rails", "~> 4.0"
-end

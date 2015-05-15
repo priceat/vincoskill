@@ -21,3 +21,7 @@
 $(document).on("page:load ready", function(){
     $("input.datepicker").datepicker({altField: '#date_of_birth-alt', altFormat: 'yy-mm-d'});
 });
+
+// $(document).ready(function() {
+//     DependentFields.bind()
+// });
