@@ -15,13 +15,4 @@
 //= require_tree .
 //= require bootstrap
 //= require jquery-ui
-//= require jquery-ui/datepicker
 //= require flipclock
-
-$(document).on("page:load ready", function(){
-    $("input.datepicker").datepicker({altField: '#date_of_birth-alt', altFormat: 'yy-mm-d'});
-});
-
-// $(document).ready(function() {
-//     DependentFields.bind()
-// });
