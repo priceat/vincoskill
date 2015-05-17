@@ -4,11 +4,43 @@
   <h1><%= current_user.email %>'s Dashboard</h1>
   <h2> Team Name: <%= @team.name %></h2>
   <h2> Players </h2>
-    <% @team.players.each do |player| %>
-      <%= player.email %> 
-      <br />
-      <br />
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Invited Players</th>
+      <th colspan="<%= @colspan %>"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @team.players.where(sign_in_count: 0).each do |player| %>
+    <tr>
+      <td><%= player.email %> </td>
+      <td>Not Registered</td>
+    </tr>
     <% end %>
+  </table>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Registered Players</th>
+      <th> Last Workout</th>
+      <th colspan="<%= @colspan %>"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @team.players.each do |player| %>
+    <tr>
+      <td><%= link_to player.email, player_path(player) %> </td>
+      <% if player.workouts.empty? %>
+      <td> Has Not Worked Out Yet </td>
+      <% else %>
+      <td><%= time_ago_in_words(player.workouts.last.updated_at) %> ago</td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+      <br />
+      <br />
   <%= link_to 'Add Player', new_player_path, :class => 'btn btn-lg btn-primary' %>
   <% else %>
   <%= link_to 'Create Team', new_team_path, :class => 'btn btn-success btn-block' %>

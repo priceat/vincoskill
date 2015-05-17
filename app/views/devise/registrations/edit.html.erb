@@ -28,12 +28,7 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
- <% if current_user.role == "coach" %>
-   <div class="field">
-  <%= render "teams/form" %>
-  </div>
   <br />
-  <% end %>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

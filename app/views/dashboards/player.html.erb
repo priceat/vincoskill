@@ -12,13 +12,14 @@
   </div>
 <% end %>
 <% else %>
-  <h1>My Workouts</h1>
+  <h1> Welcome <%= current_user.email %>!</h1>
   <% if current_user.player? && current_user.team_id.present? %>
-  <h2>Member of <% current_user.team.name %></h2>
+  <h2>Member of <%= link_to current_user.team.name, team_path(current_user.team_id) %></h2>
   <% else %>
   <h2> You are not associated with a team! </h2>
   <% end %>
   <% if current_user.worked_out? %>
+   <h2><u>My Workouts</u></h2>
   <table class="table table-striped">
   <thead>
     <tr>

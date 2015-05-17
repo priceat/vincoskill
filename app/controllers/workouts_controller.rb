@@ -19,14 +19,14 @@ class WorkoutsController < ApplicationController
   end
 
   def show
-    @workout = current_user.workouts.find(params[:id])
-    @workout_drill = current_workout.workout_drills.first
+    if current_user.role == "player"
+      @workout = current_user.workouts.find(params[:id])
+      @workout_drill = current_workout.workout_drills.first
+    else 
+      @workout = Workout.find(params[:id])
+    end
   end
   
-  def completed
- 
-  end
-
   private
 
   helper_method :current_workout

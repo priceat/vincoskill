@@ -26,11 +26,20 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @team = @user.teams.last
     
-    if @user.update_attributes(secure_params) && @user.role == "player"
+   if @user.role == "player"
+     if @user.update_attributes(secure_params) 
       redirect_to dashboard_player_path, :notice => "Let's Go!"
     else
       redirect_to dashboard_player_path, :alert => "Not a Valid Age!"
+    end
+   else
+      if @user.update_attributes(secure_params) 
+      redirect_to dashboard_player_path, :notice => "User Updated"
+      else
+      redirect_to dashboard_player_path, :alert => "Not a Valid Age!"
+      end
     end
   end
 

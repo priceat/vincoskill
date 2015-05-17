@@ -21,14 +21,14 @@ class TeamsController < ApplicationController
 
   def edit
     @user = current_user
-    @team = Team.find(params[:id])
+    @team = @user.teams.last.id
   end
 
-  def update_attributes
-    @team = Team.find(params[:id])
-    if @team.update_attributes(params.require(:team).permit(:name))
+  def update
+    @team = current_user.teams.last
+    if @team.update_attributes(params.require(:team).permit(:name, :age_group))
        flash[:notice] = "Team updated."
-       redirect_to @team
+       redirect_to dashboard_coach_path
      else
        flash[:error] = "There was an error saving the team. Please try again."
        render :edit

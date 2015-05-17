@@ -4,6 +4,12 @@ class PlayersController < ApplicationController
     @player = User.new
   end
 
+  def show
+     @team = current_user.teams.last
+     @player = @team.players.find(params[:id])
+     @workouts = @player.workouts.paginate(page: params[:page], per_page: 10)
+  end
+
   def create
     email = params[:email]
     team = current_user.coaching_team
@@ -28,7 +34,7 @@ class PlayersController < ApplicationController
   private
 
   def player_params
-    params.require(:user).permit(:date_of_birth, :years_played)
+    params.require(:user).permit(:date_of_birth, :years_played, :team_id, :role)
   end
    
 end
