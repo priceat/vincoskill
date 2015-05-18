@@ -15,7 +15,7 @@ class PlayersController < ApplicationController
     team = current_user.coaching_team
     user = User.where(:email => email).first
     user.update_attributes(:team_id => team.id)
-      redirect_to dashboard_coach_path
+    redirect_to dashboard_coach_path
   end
 
   def edit
