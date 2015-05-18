@@ -28,7 +28,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @team.players.each do |player| %>
+    <% @team.players.where("sign_in_count > ?", 0).each do |player| %>
     <tr>
       <td><%= link_to player.email, player_path(player) %> </td>
       <% if player.workouts.empty? %>
