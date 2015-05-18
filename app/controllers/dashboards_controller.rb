@@ -14,7 +14,6 @@ before_action :authenticate_user!
 
   def coach
     @team = current_user.teams.last
-    @player = @team.players
   end
 
   private
