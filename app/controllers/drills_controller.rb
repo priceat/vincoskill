@@ -1,6 +1,6 @@
 class DrillsController < ApplicationController
   def index
-    @drills = Drill.all
+    @drills = Drill.all.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -14,6 +14,12 @@ class DrillsController < ApplicationController
     else
       render :new, :status => :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   def show

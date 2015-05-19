@@ -4,7 +4,7 @@ before_action :authenticate_user!
   end
 
   def admin
-    @drills = Drill.all
+    @drills = Drill.all.paginate(page: params[:page], per_page: 10)
   end
 
   def player

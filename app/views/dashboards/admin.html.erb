@@ -26,4 +26,6 @@
     <% end %>
   </table>
   <%= link_to 'Add a New Drill', new_drill_path, class: 'btn btn-info' %>
+  <br />
+  <%= will_paginate @drills %>
 </div>

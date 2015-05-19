@@ -3,8 +3,6 @@
   <h1 class="text-center"> 
     <%= drill.name %></h1>
   <hr />
-
-  
     <h2 class="text-center">
       <%= drill.description %></h2>
     <br />
@@ -13,4 +11,5 @@
     </div>
     <br class="clr" />
   <% end %>
+    <%= will_paginate @drills %>
 </div>
