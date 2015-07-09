@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513195630) do
+ActiveRecord::Schema.define(version: 20150611180440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150513195630) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "skill_level"
+    t.integer  "reps"
+    t.string   "drill_pattern"
   end
 
   create_table "teams", force: true do |t|
@@ -74,11 +76,14 @@ ActiveRecord::Schema.define(version: 20150513195630) do
   create_table "workout_drills", force: true do |t|
     t.integer  "workout_id"
     t.integer  "drill_id"
-    t.boolean  "complete",   default: false
+    t.boolean  "complete",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "row_order"
-    t.integer  "rating",     default: 1
+    t.integer  "rating",        default: 1
+    t.integer  "distance"
+    t.integer  "real_rating",   default: 1
+    t.integer  "complete_time", default: 0
   end
 
   add_index "workout_drills", ["drill_id"], name: "index_workout_drills_on_drill_id", using: :btree

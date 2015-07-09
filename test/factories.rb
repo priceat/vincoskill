@@ -20,6 +20,9 @@ FactoryGirl.define do
       Faker::Lorem.sentence
     end
       skill_level "Beginner"
+      # sequence :id do |n|
+      #   "{n}"
+      # end
   end
   factory :workout do
     title "Random"

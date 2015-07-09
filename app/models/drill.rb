@@ -5,6 +5,12 @@ class Drill < ActiveRecord::Base
   LEVELS = {
    "Beginner" => "beginner",
    "Intermediate" => "intermediate",
-   "Advances" => "advanced"
+   "Advanced" => "advanced"
+  }
+
+  REPS = {
+    25 => 25, 
+    30 => 30, 
+    50 => 50
   }
 end

@@ -6,7 +6,7 @@
     <tr>
       <th>Drill Name</th>
       <th>Description</th>
-      <th>Pointers</th>
+      <th>Reps</th>
       <th>Video</th>
       <th colspan="<%= @colspan %>"></th>
     </tr>
@@ -16,7 +16,7 @@
     <tr>
       <td><%= link_to w.drill.name, drill_path(w.drill_id) %></td>
       <td><%= w.drill.description %></td>
-      <td><%= w.drill.pointers %></td>
+      <td><%= w.drill.reps %></td>
       <% if w.drill.video.present? %>
       <td><%= link_to "Video", drill_path(w.drill_id), class: 'btn-xs btn-success' %></td>
       <% else %>
@@ -26,7 +26,11 @@
     <% end %>
   </table>
   <% if @workout.workout_drills.any?{|w| w.complete == true} %>
-  <%= link_to 'Back', :back, class: 'btn btn-success' %> 
+    <% if current_user.role == "player" %>
+    <%= link_to 'Back', dashboard_player_path, class: 'btn btn-success' %> 
+    <% else %>
+    <%= link_to 'Back', dashboard_coach_path, class: 'btn btn-success' %> 
+    <% end %>
   <% else %>
   <%= link_to 'Begin Workout', workout_drill_path(@workout_drill), class: 'btn btn-success' %>
   <% end %>

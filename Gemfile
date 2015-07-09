@@ -23,12 +23,22 @@ gem 'figaro'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'ranked-model'
 gem 'will_paginate'
+gem 'time_difference'
 group :development, :test do
-   gem 'spring'   
+   # gem 'rspec-rails', '~> 3.1.0'
+   # gem 'spring'   
    gem 'binding_of_caller'
    gem 'better_errors'
-   gem 'faker'
    gem 'letter_opener'
    gem 'email_spec'
    gem "factory_girl_rails", "~> 4.0"
+ end
+
+ group :test do
+  # gem 'cucumber-rails', :require => false
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+  gem 'database_cleaner'
  end

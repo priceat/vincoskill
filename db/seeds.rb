@@ -7,7 +7,9 @@ Drill.destroy_all
     name: Faker::Lorem.sentence,
     description: Faker::Lorem.sentence,
     pointers: Faker::Lorem.sentence,
-    skill_level: "Beginner"
+    skill_level: "Beginner",
+    reps: 25,
+    drill_pattern: Faker::Lorem.sentence
     )
 end
 
@@ -16,7 +18,9 @@ end
     name: Faker::Lorem.sentence,
     description: Faker::Lorem.sentence,
     pointers: Faker::Lorem.sentence,
-    skill_level: "Intermediate"
+    skill_level: "Intermediate",
+    reps: 30,
+    drill_pattern: Faker::Lorem.sentence
     )
 end
 
@@ -25,7 +29,9 @@ end
     name: Faker::Lorem.sentence,
     description: Faker::Lorem.sentence,
     pointers: Faker::Lorem.sentence,
-    skill_level: "Advanced"
+    skill_level: "Advanced",
+    reps: 30,
+    drill_pattern: Faker::Lorem.sentence
     )
 end
 

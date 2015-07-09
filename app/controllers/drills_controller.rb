@@ -20,6 +20,13 @@ class DrillsController < ApplicationController
   end
 
   def update
+    if current_drill.update_attributes(params.require(:drill).permit(:name, :description, :pointers, :video, :skill_level, :reps, :drill_pattern))
+       flash[:notice] = "Drill updated."
+       redirect_to current_drill
+     else
+       flash[:error] = "There was an error saving the drill. Please try again."
+       render :edit
+     end
   end
 
   def show
@@ -34,6 +41,6 @@ class DrillsController < ApplicationController
   end
 
   def drill_params
-    params.require(:drill).permit(:name, :description, :pointers, :video, :skill_level)
+    params.require(:drill).permit(:name, :description, :pointers, :video, :skill_level, :reps, :drill_pattern)
   end
 end
